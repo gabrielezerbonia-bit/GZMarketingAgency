@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GZ Marketing - Marketing per la sanità privata e PMA</title>
+    <meta name="description" content="Marketing sanitario per centri medici, cliniche private e PMA. Strategia, contenuti, reputazione online, WhatsApp e Google per costruire un sistema stabile di richieste pazienti.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            transform: rotate(-5deg);
+            transition: all 0.3s;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .logo-icon:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-main {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #64748b;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            background: none;
+            border: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: #f97316;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+            color: white !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+            color: white !important;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -7px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: #475569;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-close:hover {
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #475569;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .mobile-menu a:hover {
+            color: #f97316;
+        }
+
+        .mobile-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .mobile-menu a:hover::after {
+            width: 50%;
+        }
+
+        .mobile-menu .cta-btn-mobile {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white !important;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+            margin-top: 1rem;
+        }
+
+        .mobile-menu .cta-btn-mobile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .mobile-menu .cta-btn-mobile::after {
+            display: none;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #7c3aed 0%, #312e81 40%, #f97316 100%);
+            color: white;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.35);
+            border: 1px solid rgba(248, 250, 252, 0.3);
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-badge span {
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            color: #fbbf24;
+        }
+
+        .hero .highlight {
+            color: #fbbf24;
+            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-small {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: -0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #f97316;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #fff7ed;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #7c3aed;
+        }
+
+        /* Logos Bar */
+        .logos-bar {
+            background: #f8fafc;
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logos-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .logos-bar p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.85;
+            transition: all 0.3s;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .logo-item img {
+            max-height: 60px;
+            max-width: 180px;
+            object-fit: contain;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Services */
+        #servizi {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #f97316;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+            border-left-color: #7c3aed;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* About Gabriele */
+        #gabriele {
+            background: #f8fafc;
+        }
+
+        .about-gabriele {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image-container {
+            position: sticky;
+            top: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 300px !important;
+            height: 400px !important;
+            border-radius: 50% !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+            object-fit: cover !important;
+            object-position: center top !important;
+            border: 5px solid white !important;
+        }
+
+        .about-text {
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 15px;
+            border-left: 4px solid #f97316;
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        .about-text h3 {
+            color: #f97316;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: #475569;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-text .highlight-text {
+            background: linear-gradient(135deg, #fef3c7 0%, #ede9fe 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 3px solid #f97316;
+            font-weight: 500;
+            color: #0f172a;
+            font-size: 1.1rem;
+        }
+
+        /* Approach */
+        #approccio {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+        }
+
+        #approccio .section-title,
+        #approccio .section-subtitle {
+            color: white;
+        }
+
+        #approccio .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .approach-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 3px solid #f97316;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .approach-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-top-color: #fbbf24;
+        }
+
+        .approach-item h3 {
+            color: #fbbf24;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .approach-item p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        /* Case Study */
+        #casi-studio {
+            background: #ffffff;
+        }
+
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 15px;
+            border-left: 4px solid #f97316;
+        }
+
+        .case-study h3 {
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .case-study p {
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .case-preview {
+            display: block;
+        }
+
+        .case-full {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .case-full.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-expand {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+            margin-top: 1rem;
+        }
+
+        .btn-expand:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-collapse {
+            background: transparent;
+            color: #f97316;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            border: 2px solid #f97316;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-collapse:hover {
+            background: #f97316;
+            color: white;
+        }
+
+        /* Partner Section */
+        #partner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+        }
+
+        #partner .section-title {
+            color: white;
+        }
+
+        #partner .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        .partner-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .partner-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+
+        .partner-text p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .partner-text .partner-highlight {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #f97316;
+        }
+
+        .partner-cta {
+            margin-top: 2rem;
+        }
+
+        .btn-partner {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-partner:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Contact */
+        #contatti {
+            background: #f8fafc;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-cta {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn-whatsapp-large {
+            background: #25D366;
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-whatsapp-large:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .contact-form button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-info p {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .contact-info a {
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #ea580c;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-content p {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: #94a3b8;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f97316;
+        }
+
+        .back-to-top {
+            color: white;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.98);
+            color: white;
+            padding: 1.5rem;
+            z-index: 2000;
+            display: none;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cookie-text {
+            margin-bottom: 1rem;
+        }
+
+        .cookie-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #f97316;
+        }
+
+        .cookie-text p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .cookie-text a {
+            color: #f97316;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .cookie-btn-accept {
+            background: #f97316;
+            color: white;
+        }
+
+        .cookie-btn-accept:hover {
+            background: #ea580c;
+        }
+
+        .cookie-btn-reject {
+            background: transparent;
+            color: white;
+            border: 1px solid #64748b;
+        }
+
+        .cookie-btn-reject:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cookie-btn-settings {
+            background: transparent;
+            color: #94a3b8;
+            border: none;
+            text-decoration: underline;
+        }
+
+        .cookie-btn-settings:hover {
+            color: white;
+        }
+
+        /* Cookie Settings Modal */
+        .cookie-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2001;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .cookie-modal.show {
+            display: flex;
+        }
+
+        .cookie-modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .cookie-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .cookie-modal-header h3 {
+            color: #0f172a;
+            font-size: 1.3rem;
+        }
+
+        .cookie-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .cookie-category {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cookie-category:last-of-type {
+            border-bottom: none;
+        }
+
+        .cookie-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .cookie-category h4 {
+            color: #0f172a;
+            font-size: 1rem;
+        }
+
+        .cookie-category p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .cookie-toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .cookie-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 26px;
+        }
+
+        .cookie-toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .cookie-toggle input:checked + .cookie-toggle-slider {
+            background-color: #f97316;
+        }
+
+        .cookie-toggle input:checked + .cookie-toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .cookie-toggle input:disabled + .cookie-toggle-slider {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .cookie-modal-footer {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .cookie-modal-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cookie-modal-btn-save {
+            background: #f97316;
+            color: white;
+            border: none;
+        }
+
+        .cookie-modal-btn-save:hover {
+            background: #ea580c;
+        }
+
+        /* Legal Pages */
+        .legal-page {
+            display: none;
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .legal-page.active {
+            display: block;
+        }
+
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .legal-content h1 {
+            color: #0f172a;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-content .last-update {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .legal-content h2 {
+            color: #0f172a;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-content h3 {
+            color: #475569;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-content p {
+            color: #475569;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .legal-content ul {
+            color: #475569;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .legal-content a {
+            color: #f97316;
+        }
+
+        .legal-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .legal-back:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content wrapper */
+        .main-content {
+            display: block;
+        }
+
+        .main-content.hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .logo {
+                gap: 0.6rem;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+
+            .logo-main {
+                font-size: 1.3rem;
+            }
+
+            .logo-sub {
+                font-size: 0.6rem;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-small {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 1rem;
+            }
+
+            .logos-container {
+                gap: 2rem;
+            }
+
+            .logo-item img {
+                max-height: 45px;
+                max-width: 140px;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-gabriele {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image-container {
+                position: static;
+                order: -1;
+            }
+
+            .profile-photo {
+                width: 200px !important;
+                height: 250px !important;
+            }
+
+            .about-text {
+                padding: 2rem;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study {
+                padding: 2rem;
+            }
+
+            .partner-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .partner-logo {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .btn-whatsapp-large {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cookie-banner {
+                padding: 1rem;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .cookie-modal-content {
+                padding: 1.5rem;
+            }
+
+            .cookie-modal-footer {
+                flex-direction: column;
+            }
+
+            .cookie-modal-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>🍪 Questo sito utilizza i cookie</h4>
+                <p>Utilizziamo cookie tecnici necessari per il funzionamento del sito. Puoi anche accettare cookie di analisi e marketing per aiutarci a migliorare il servizio. Per maggiori informazioni leggi la nostra <a href="#" onclick="showPage('cookie'); return false;">Cookie Policy</a> e la <a href="#" onclick="showPage('privacy'); return false;">Privacy Policy</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Accetta tutti</button>
+                <button class="cookie-btn cookie-btn-reject" onclick="rejectOptionalCookies()">Rifiuta opzionali</button>
+                <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">Personalizza</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h3>Impostazioni Cookie</h3>
+                <button class="cookie-modal-close" onclick="closeCookieSettings()">✕</button>
+            </div>
+            
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <h4>Cookie Tecnici (Necessari)</h4>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p>Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati. Includono il salvataggio delle tue preferenze sui cookie.</p>
+            </div>
+
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <h4>Cookie Analitici</h4>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="analyticsCookies">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p>Questi cookie ci permettono di capire come i visitatori interagiscono con il sito, raccogliendo informazioni in forma anonima. Utilizziamo Google Analytics per questo scopo.</p>
+            </div>
+
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <h4>Cookie di Marketing</h4>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="marketingCookies">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <p>Questi cookie vengono utilizzati per mostrarti pubblicità pertinenti su altre piattaforme. Utilizziamo Meta Pixel (Facebook) per questo scopo.</p>
+            </div>
+
+            <div class="cookie-modal-footer">
+                <button class="cookie-modal-btn cookie-modal-btn-save" onclick="saveCookieSettings()">Salva preferenze</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-close" onclick="closeMobileMenu()">✕</div>
+        <a href="#servizi" onclick="closeMobileMenu()">Servizi</a>
+        <a href="#gabriele" onclick="closeMobileMenu()">Chi sono</a>
+        <a href="#approccio" onclick="closeMobileMenu()">Come lavoro</a>
+        <a href="#casi-studio" onclick="closeMobileMenu()">Casi studio</a>
+        <a href="#partner" onclick="closeMobileMenu()">Partner</a>
+        <a href="#contatti" class="cta-btn-mobile" onclick="closeMobileMenu()">Consulenza gratuita</a>
+    </div>
+
+    <!-- Header -->
+    <header id="top">
+        <nav>
+            <div class="logo">
+                <a href="#" onclick="showPage('home'); return false;" style="display: flex; align-items: center; gap: 1rem; text-decoration: none;">
+                    <div class="logo-icon">GZ</div>
+                    <div class="logo-text">
+                        <span class="logo-main">GZ</span>
+                        <span class="logo-sub">Marketing</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#gabriele">Chi sono</a></li>
+                <li><a href="#approccio">Come lavoro</a></li>
+                <li><a href="#casi-studio">Casi studio</a></li>
+                <li><a href="#partner">Partner</a></li>
+                <li><a href="#contatti" class="cta-btn">Consulenza gratuita</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>Marketing per la sanità privata</span> • <span>PMA e strutture sanitarie</span>
+                    </div>
+                    <h1>Marketing per la <span class="highlight">sanità privata</span></h1>
+                    <h2 class="hero-subtitle">Specializzato in centri PMA</h2>
+                    <p>Aiuto realtà sanitarie private a costruire un sistema stabile di richieste pazienti, unendo strategia, contenuti, reputazione e conversione.</p>
+                    <p class="hero-small">Non gestisco solo canali: progetto il percorso che porta il paziente dalla prima informazione alla prenotazione.</p>
+                    <div class="hero-buttons">
+                        <a href="#contatti" class="btn btn-primary">Il tuo progetto sanitario: consulenza gratuita (30 minuti)</a>
+                        <a href="#gabriele" class="btn btn-secondary">Chi sono e perché PMA</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logos Bar -->
+        <div class="logos-bar">
+            <div class="logos-bar-content">
+                <p>Hanno scelto di lavorare con me</p>
+                <div class="logos-container">
+                    <div class="logo-item">
+                        <img src="https://aromando.it/wp-content/uploads/2022/12/Logo_new.png" alt="BioFertility - Centro PMA Roma">
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://www.espertisanita.it/_astro/logo.C2YzyPt4.png" alt="EspertiSanità - Consulenza fiscale e gestionale per la sanità">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <section id="servizi">
+            <div class="container">
+                <h2 class="section-title">Servizi per sanità privata e PMA</h2>
+                <p class="section-subtitle">Dal posizionamento al percorso paziente: si parte da ciò che serve davvero alla struttura, non da un pacchetto predefinito.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <h3>Posizionamento sanitario</h3>
+                        <p>Definizione chiara di chi sei, per chi sei e perché dovrebbero scegliere proprio te rispetto ad altri centri o cliniche. Evita la guerra di prezzo e rende coerenti sito, social e comunicazione con la tua identità clinica.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                        </div>
+                        <h3>Contenuti e social organico</h3>
+                        <p>Contenuti pensati per educare, rassicurare e creare fiducia: video, Q&amp;A, dirette, clip e format che parlano davvero al paziente, senza linguaggio troppo tecnico né promesse vuote.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <h3>Sistema contatti e WhatsApp</h3>
+                        <p>Progettazione del percorso dalla prima richiesta alla prenotazione: flussi WhatsApp, domande filtro, messaggi automatici e procedure che aiutano il paziente e alleggeriscono il lavoro di segreteria.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <h3>Google Business e reputazione</h3>
+                        <p>Ottimizzazione della scheda, gestione della reputazione e dei processi per le recensioni. Lavoro su ciò che il paziente vede quando cerca il tuo nome o la tua specialità su Google.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        </div>
+                        <h3>Google Ads</h3>
+                        <p>Campagne search orientate a richieste pazienti, attivate solo quando le fondamenta sono in ordine e c'è una domanda reale. L'obiettivo non è clic o impression, ma richieste qualificate e sostenibili.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                        </div>
+                        <h3>Sito e percorso prenotazione</h3>
+                        <p>Sito orientato al paziente, con percorso chiaro dalla pagina informativa alla richiesta di appuntamento: moduli, call to action, testi e struttura pensati per ridurre dubbi e frizioni.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Gabriele -->
+        <section id="gabriele">
+            <div class="container">
+                <h2 class="section-title">Gabriele Zerbonia</h2>
+                
+                <div class="about-gabriele">
+                    <div class="about-image-container">
+                        <img src="https://i.imgur.com/qP6Wg1U.jpeg" class="profile-photo" alt="Gabriele Zerbonia" />
+                    </div>
+                    
+                    <div class="about-text">
+                        <h2>Il mio percorso nel marketing sanitario</h2>
+                        <p>Sono Gabriele Zerbonia e lavoro nel marketing sanitario, con un focus particolare sulla sanità privata e sulla procreazione medicalmente assistita (PMA). Mi sono formato tra strategia, comunicazione digitale e marketing, con un approccio pratico: capire cosa fa davvero scegliere una struttura sanitaria e un medico.</p>
+                        
+                        <h3>Vendita e gestione dei processi</h3>
+                        <p>Ho iniziato nella vendita diretta. Lì ho imparato a leggere bisogni reali, gestire obiezioni e costruire fiducia in conversazioni uno a uno. In seguito ho gestito un team commerciale, lavorando su processi, formazione e risultati misurabili. Questo mi ha insegnato che comunicazione e numeri devono stare insieme.</p>
+                        
+                        <h3>Perché sanità e PMA</h3>
+                        <p>Sono uno dei primi figli della PMA in Italia. Ho conosciuto la sanità privata prima come figlio, e poi come professionista. So cosa significa cercare informazioni, avere paura di sbagliare centro, non capire il linguaggio tecnico e affidarsi a chi sembra più chiaro e umano.</p>
+                        <p>Oggi porto questa doppia prospettiva nel mio lavoro: da una parte le esigenze cliniche e organizzative della struttura, dall'altra il punto di vista del paziente con le sue paure, aspettative e tempi decisionali. È un vantaggio competitivo che non si può improvvisare.</p>
+                        
+                        <div class="highlight-text">
+                            Il mio metodo integra tre livelli: <br><br>
+                            1. Posizionamento: cosa comunica la struttura e a chi.<br>
+                            2. Contenuti e reputazione: come si costruisce fiducia nel tempo.<br>
+                            3. Conversione paziente → clinica: percorso chiaro dalla prima informazione alla prenotazione.<br><br>
+                            L'obiettivo non è "pubblicare", ma generare richieste pazienti più stabili e più qualificate.
+                        </div>
+                        
+                        <h3>Il mio modo di lavorare</h3>
+                        <p>Seguo personalmente ogni progetto, dalla strategia all'esecuzione. Quando serve, coinvolgo specialisti verticali per video, design e advertising, così la struttura non deve gestire fornitori esterni: c'è un unico sistema e un unico referente.</p>
+                        <p>Tengo molto alla personalizzazione: ogni struttura sanitaria è diversa per mercato, ciclo decisionale del paziente, reputazione e offerta clinica. Per questo lavoro con pochi progetti alla volta e costruisco un modello su misura che unisce analisi, strategia, esecuzione, ottimizzazione e continuità.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach -->
+        <section id="approccio">
+            <div class="container">
+                <h2 class="section-title">Come lavoro</h2>
+                <p class="section-subtitle">Dal posizionamento al percorso paziente: processo chiaro, adattato alla realtà di ogni struttura sanitaria.</p>
+                
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h3>1. Analisi</h3>
+                        <p>Obiettivo clinico, tipologia di pazienti, area geografica, concorrenza, reputazione attuale e canali già attivi. Qui capiamo cosa funziona, cosa no e dove ha senso intervenire.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>2. Messaggio e posizionamento</h3>
+                        <p>Definiamo come vuoi essere percepito: cosa comunichi, quali elementi ti differenziano realmente e come li traduciamo in contenuti e parole comprensibili per il paziente.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>3. Sistema contatti pazienti</h3>
+                        <p>Progettiamo il percorso di contatto: WhatsApp, form, email, telefonate. Flussi chiari, domande filtro, messaggi guida e follow-up che aiutano il paziente e la segreteria.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>4. Social organico sanitario</h3>
+                        <p>Piano contenuti, format e calendario per costruire fiducia nel tempo: divulgazione chiara, casi, risposte alle domande più frequenti, dirette e contenuti vicini alla realtà dei pazienti.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>5. Google e visibilità</h3>
+                        <p>Ottimizzazione Google Business e, quando il progetto è pronto, eventuale attivazione di Google Ads per intercettare chi sta già cercando il tipo di percorso che offri.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <h3>6. Misurazione e continuità</h3>
+                        <p>Monitoriamo richieste pazienti, qualità dei contatti e costi di acquisizione, non solo like o visualizzazioni. Ottimizziamo ciò che porta risultati reali e sostenibili nel tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study -->
+        <section id="casi-studio">
+            <div class="container">
+                <h2 class="section-title">Casi studio</h2>
+                <p class="section-subtitle">Due esempi concreti in ambito sanitario: un centro PMA già avviato ma gestito male e uno studio da costruire da zero.</p>
+
+                <!-- CASO 1: BioFertility -->
+                <div class="case-study">
+                    <h3>BioFertility – Centro di infertilità e PMA a Roma</h3>
+                    
+                    <!-- Versione sintetica -->
+                    <div class="case-preview" id="bio-preview">
+                        <p>Quando ho iniziato a seguire il Prof. Manna, le pagine social esistevano ma non parlavano alle persone giuste: pochi contenuti, poco chiari, nessun vero posizionamento. Nel frattempo venivano spesi molti soldi in Google Ads senza generare pazienti reali.</p>
+                        <p><strong>Risultato dopo 8 mesi di lavoro organico:</strong> oltre 23.000 follower totali tra TikTok, Instagram e Facebook, gruppo Facebook da 6.300+ membri (il più grande in Italia sulla PMA), richieste e pazienti quadruplicati, costi di marketing ridotti drasticamente.</p>
+                        <button class="btn-expand" onclick="expandCase('bio')">📖 Leggi caso studio completo</button>
+                    </div>
+
+                    <!-- Versione completa -->
+                    <div class="case-full" id="bio-full">
+                        <p>Quando ho iniziato a seguire il Prof. Manna, la situazione era questa: le pagine social esistevano ma non parlavano alle persone giuste, i contenuti erano pochi, poco chiari e non c'era un messaggio forte e riconoscibile. Nel frattempo venivano spesi ogni mese molti soldi in Google Ads, più lo stipendio di chi le gestiva, senza generare pazienti reali. Solo costi in aumento e nessuna strategia di posizionamento.</p>
+                        
+                        <p>L'obiettivo era preciso: arrivare a più persone possibili interessate alla PMA, con un messaggio basato su personalizzazione, trasparenza e divulgazione scientifica chiara, senza filtri. Mostrare il medico per com'è davvero: diretto, onesto, vicino alle coppie.</p>
+                        
+                        <p>Abbiamo scelto di spegnere la dipendenza dalle sponsorizzate e costruire tutto sulla crescita organica. Abbiamo lavorato su posizionamento del brand, contenuti, dirette mirate, piattaforme sanitarie e relazione continua con le persone (commenti, direct, domande). Il focus non era "fare views", ma far sentire le persone ascoltate e seguite.</p>
+
+                        <p><strong>I numeri dopo circa 8 mesi di lavoro organico:</strong></p>
+                        <p>
+                            • TikTok: oltre 10.000 follower, in larga parte in target PMA<br>
+                            • Instagram: oltre 7.000 follower<br>
+                            • Pagina Facebook: circa 6.000 follower<br>
+                            • Gruppo Facebook privato sulla PMA: oltre 6.300 membri, il più grande sul tema in Italia<br>
+                            • Dirette seguite da oltre 1.000 persone<br>
+                            • Richieste e pazienti quadruplicati rispetto all'inizio
+                        </p>
+
+                        <p>Nel frattempo abbiamo:</p>
+                        <p>
+                            • Ridotto drasticamente i costi di marketing eliminando Ads inutili<br>
+                            • Migliorato la qualità dei pazienti (età media più bassa, quindi più probabilità di successo)<br>
+                            • Reso più semplice il percorso di prenotazione grazie al nuovo sito, al sistema di prenotazione online, "paga ora" e moduli privacy digitali<br>
+                            • Portato BioFertility ai primi posti per recensioni su piattaforme come Top Doctors
+                        </p>
+
+                        <p>Il risultato più importante non sono solo i numeri, ma il tipo di persone che arrivano: più consapevoli, più informate, più fiduciose. Tutto questo è stato costruito senza basare il progetto sulle sponsorizzate, ma su posizionamento, contenuti e relazione costante.</p>
+
+                        <button class="btn-collapse" onclick="collapseCase('bio')">↑ Chiudi</button>
+                    </div>
+                </div>
+
+                <!-- CASO 2: EspertiSanità -->
+                <div class="case-study">
+                    <h3>EspertiSanità – Studio specializzato nel settore sanitario</h3>
+                    
+                    <!-- Versione sintetica -->
+                    <div class="case-preview" id="esperti-preview">
+                        <p>Laura aveva già un sito e una presenza online, ma non in linea con la sua visione: offrire un supporto completo al mondo sanitario, dalla parte contabile e fiscale a quella aziendale e organizzativa. Gli strumenti esistenti non comunicavano questo posizionamento.</p>
+                        <p><strong>Il lavoro:</strong> nuovo brand EspertiSanità, nuovo sito, profili social coerenti e revisione delle convenzioni per renderle comprensibili e utilizzabili da professionisti e strutture sanitarie. Un progetto costruito da zero, con pazienza e cura.</p>
+                        <button class="btn-expand" onclick="expandCase('esperti')">📖 Leggi caso studio completo</button>
+                    </div>
+
+                    <!-- Versione completa -->
+                    <div class="case-full" id="esperti-full">
+                        <p>Laura aveva già un sito e una presenza minima online, ma non in linea con ciò che voleva davvero costruire. Il progetto era molto più ambizioso: offrire un supporto completo al mondo sanitario, dalla parte contabile e fiscale a quella aziendale, finanziaria e organizzativa, fino al ruolo di temporary manager.</p>
+                        
+                        <p>Il problema era che gli strumenti esistenti (sito, comunicazione, convenzioni attive) non rispecchiavano questa visione. Ad esempio, una convenzione molto importante con i biologi era scritta e strutturata in modo poco intuitivo e, di fatto, difficilmente fruibile.</p>
+                        
+                        <p>Abbiamo quindi lavorato alla radice:</p>
+                        <p>
+                            • Nuovo posizionamento chiaro e riconoscibile<br>
+                            • Creazione del brand <strong>EspertiSanità</strong><br>
+                            • Nuovo sito web, pensato per spiegare in modo semplice temi complessi<br>
+                            • Nuovi profili social, coerenti con il posizionamento<br>
+                            • Revisione e riscrittura delle convenzioni (come quella con i biologi) per renderle comprensibili, accessibili e realmente utilizzabili
+                        </p>
+
+                        <p>Con Laura siamo in una fase di costruzione strutturata: stiamo definendo contenuti, format, percorsi e strumenti per parlare a tutto il mondo sanitario in modo chiaro, pratico e vicino alla realtà quotidiana di chi lavora in questo settore.</p>
+
+                        <p>L'obiettivo è trasformare un servizio "tecnico" in un punto di riferimento riconoscibile per chi lavora nella sanità, semplificando temi che spesso vengono percepiti come lontani o difficili (fisco, azienda, organizzazione) e rendendoli concreti, utili e applicabili.</p>
+
+                        <button class="btn-collapse" onclick="collapseCase('esperti')">↑ Chiudi</button>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem; font-weight: 500; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto; color: #475569;">
+                    Questi due casi studio rappresentano due situazioni diverse: da una parte un centro PMA già avviato ma gestito male e senza risultati, dall'altra uno studio da costruire da zero. In entrambi i casi il filo conduttore è lo stesso: partire dal posizionamento, lavorare in modo personalizzato e costruire un sistema che abbia senso nel lungo periodo, non solo "per fare numeri".
+                </p>
+            </div>
+        </section>
+
+        <!-- Partner Section -->
+        <section id="partner">
+            <div class="container">
+                <h2 class="section-title">Partner</h2>
+                <p class="section-subtitle">Un ecosistema completo per la tua struttura sanitaria</p>
+                
+                <div class="partner-content">
+                    <div class="partner-logo">
+                        <img src="https://www.espertisanita.it/_astro/logo.C2YzyPt4.png" alt="EspertiSanità">
+                    </div>
+                    
+                    <div class="partner-text">
+                        <h3>EspertiSanità</h3>
+                        <p>EspertiSanità nasce da un gruppo di professionisti che già collaboravano tra loro, ognuno con oltre vent'anni di esperienza nel settore sanitario. Hanno deciso di fare squadra e unire le proprie competenze in un unico progetto: offrire a medici e strutture sanitarie tutto ciò di cui hanno bisogno, in un unico punto di riferimento.</p>
+                        
+                        <p>Specializzati in ENPAM, ENPAP, ENPAB e professioni sanitarie, lavorano con un flusso completamente digitale: documenti, firma e assistenza a distanza.</p>
+                        
+                        <div class="partner-highlight">
+                            <p><strong>Servizi dedicati alla sanità:</strong></p>
+                            <p>• Consulenza contabile e fiscale per professionisti sanitari<br>
+                            • Consulenza aziendale e finanziaria (business plan, accesso al credito)<br>
+                            • Temporary management per strutture sanitarie<br>
+                            • Consulenza del lavoro (contratti, paghe, adempimenti)<br>
+                            • Consulenza Privacy e GDPR</p>
+                        </div>
+                        
+                        <p>Se scegli di lavorare con me per il marketing, hai anche la possibilità di affidarti a EspertiSanità per la gestione fiscale, contabile, finanziaria e organizzativa della tua struttura. Due servizi complementari, coordinati insieme per semplificarti il lavoro.</p>
+                        
+                        <div class="partner-cta">
+                            <a href="#contatti" class="btn-partner">Richiedi una consulenza gratuita</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contatti">
+            <div class="container">
+                <h2 class="section-title">Consulenza gratuita 30 minuti</h2>
+                <p class="section-subtitle">Se pensi che abbia senso lavorare insieme sul tuo progetto sanitario, possiamo partire da una call di 30 minuti.</p>
+                
+                <div class="contact-content">
+                    <div class="whatsapp-cta">
+                        <a href="https://wa.me/393513456448?text=Ciao%20Gabriele%2C%20vorrei%20prenotare%20una%20consulenza%20gratuita%20di%2030%20minuti%20per%20il%20mio%20progetto%20sanitario" target="_blank" rel="noopener" class="btn-whatsapp-large">
+                            📱 Prenota su WhatsApp Business
+                        </a>
+                    </div>
+
+                    <div class="contact-info">
+                        <p>📧 Email: <a href="/cdn-cgi/l/email-protection#4a2d2b2838232f262f64302f38282524232b0a2d272b232664292527"><span class="__cf_email__" data-cfemail="b7d0d6d5c5ded2dbd299cdd2c5d5d8d9ded6f7d0dad6dedb99d4d8da">[email&#160;protected]</span></a></p>
+                    </div>
+                    
+                    <p style="text-align: center; margin: 2rem 0; color: #64748b; font-weight: 500;">Oppure compila il form:</p>
+                    
+                    <form class="contact-form" onsubmit="handleEmailSubmit(event)">
+                        <input type="text" name="nome" placeholder="Il tuo nome" required minlength="2" maxlength="100" />
+                        <input type="email" name="email" placeholder="La tua email" required />
+                        <input type="text" name="business" placeholder="Struttura o attività sanitaria" required maxlength="200" />
+                        <textarea name="messaggio" placeholder="Raccontami in breve il tuo progetto o la situazione attuale" rows="6" required minlength="10" maxlength="2000"></textarea>
+                        <label style="display: flex; align-items: start; gap: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                            <input type="checkbox" required style="margin-top: 0.2rem;" />
+                            <span>Accetto l'<a href="#" onclick="showPage('privacy'); return false;" style="color: #f97316; text-decoration: underline;">informativa sulla privacy</a> e autorizzo il trattamento dei miei dati personali ai sensi del GDPR</span>
+                        </label>
+                        <button type="submit">📧 Invia via email</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div class="legal-page" id="privacyPage">
+        <div class="legal-content">
+            <a href="#" onclick="showPage('home'); return false;" class="legal-back">← Torna alla home</a>
+            
+            <h1>Privacy Policy</h1>
+            <p class="last-update">Ultimo aggiornamento: Gennaio 2026</p>
+
+            <h2>1. Titolare del trattamento</h2>
+            <p>Il titolare del trattamento dei dati personali è:</p>
+            <p>
+                <strong>Gabriele Zerbonia</strong><br>
+                P.IVA: 03318380809<br>
+                Sede legale: Contrada Taccone 6, 89862 Drapia (VV), Italia<br>
+                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="02656360706b676e672c786770606d6c6b6342656f636b6e2c616d6f">[email&#160;protected]</a><br>
+                Telefono: +39 351 345 6448
+            </p>
+
+            <h2>2. Tipologie di dati raccolti</h2>
+            <p>Il sito raccoglie i seguenti dati personali:</p>
+            
+            <h3>Dati forniti volontariamente dall'utente</h3>
+            <ul>
+                <li><strong>Form di contatto:</strong> nome, indirizzo email, struttura/attività sanitaria, messaggio</li>
+                <li><strong>WhatsApp:</strong> numero di telefono e contenuto della conversazione</li>
+            </ul>
+
+            <h3>Dati raccolti automaticamente</h3>
+            <ul>
+                <li><strong>Cookie tecnici:</strong> preferenze sui cookie (necessari per il funzionamento del sito)</li>
+                <li><strong>Cookie analitici (previo consenso):</strong> dati di navigazione anonimi tramite Google Analytics</li>
+                <li><strong>Cookie di marketing (previo consenso):</strong> dati per remarketing tramite Meta Pixel (Facebook)</li>
+            </ul>
+
+            <h2>3. Finalità del trattamento</h2>
+            <p>I dati personali sono trattati per le seguenti finalità:</p>
+            <ul>
+                <li><strong>Rispondere alle richieste di contatto:</strong> per fornirti informazioni sui servizi e organizzare consulenze</li>
+                <li><strong>Migliorare il sito (previo consenso):</strong> analisi anonima del traffico per capire come migliorare contenuti e usabilità</li>
+                <li><strong>Marketing (previo consenso):</strong> per mostrarti pubblicità pertinenti su altre piattaforme</li>
+            </ul>
+
+            <h2>4. Base giuridica del trattamento</h2>
+            <ul>
+                <li><strong>Consenso:</strong> per cookie analitici e di marketing</li>
+                <li><strong>Legittimo interesse:</strong> per rispondere alle richieste di contatto inviate volontariamente</li>
+                <li><strong>Obbligo legale:</strong> per adempiere a obblighi di legge (es. fiscali)</li>
+            </ul>
+
+            <h2>5. Destinatari dei dati</h2>
+            <p>I dati personali possono essere condivisi con:</p>
+            <ul>
+                <li><strong>Google LLC:</strong> per il servizio Google Analytics (se accetti i cookie analitici)</li>
+                <li><strong>Meta Platforms Inc.:</strong> per il servizio Meta Pixel (se accetti i cookie di marketing)</li>
+                <li><strong>Vercel Inc.:</strong> per l'hosting del sito web</li>
+                <li><strong>Imgur:</strong> per l'hosting delle immagini</li>
+            </ul>
+            <p>Alcuni di questi servizi potrebbero trasferire dati al di fuori dell'UE. In tal caso, il trasferimento avviene sulla base di garanzie appropriate (es. Standard Contractual Clauses).</p>
+
+            <h2>6. Conservazione dei dati</h2>
+            <ul>
+                <li><strong>Dati del form di contatto:</strong> conservati per il tempo necessario a gestire la richiesta e per eventuali obblighi legali (massimo 10 anni per obblighi fiscali)</li>
+                <li><strong>Cookie tecnici:</strong> 1 anno</li>
+                <li><strong>Cookie analitici:</strong> secondo le policy di Google Analytics (26 mesi)</li>
+                <li><strong>Cookie di marketing:</strong> secondo le policy di Meta (180 giorni)</li>
+            </ul>
+
+            <h2>7. Diritti dell'interessato</h2>
+            <p>Ai sensi degli articoli 15-22 del GDPR, hai il diritto di:</p>
+            <ul>
+                <li><strong>Accesso:</strong> ottenere conferma dell'esistenza di un trattamento e accedere ai tuoi dati</li>
+                <li><strong>Rettifica:</strong> correggere dati inesatti o incompleti</li>
+                <li><strong>Cancellazione:</strong> richiedere la cancellazione dei dati ("diritto all'oblio")</li>
+                <li><strong>Limitazione:</strong> limitare il trattamento in determinati casi</li>
+                <li><strong>Portabilità:</strong> ricevere i dati in formato strutturato</li>
+                <li><strong>Opposizione:</strong> opporti al trattamento per motivi legittimi</li>
+                <li><strong>Revoca del consenso:</strong> revocare in qualsiasi momento il consenso prestato</li>
+            </ul>
+            <p>Per esercitare questi diritti, contattami all'indirizzo: <a href="/cdn-cgi/l/email-protection#95f2f4f7e7fcf0f9f0bbeff0e7f7fafbfcf4d5f2f8f4fcf9bbf6faf8"><span class="__cf_email__" data-cfemail="690e080b1b000c050c47130c1b0b06070008290e04080005470a0604">[email&#160;protected]</span></a></p>
+            <p>Hai inoltre il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</p>
+
+            <h2>8. Cookie</h2>
+            <p>Per informazioni dettagliate sui cookie utilizzati, consulta la nostra <a href="#" onclick="showPage('cookie'); return false;">Cookie Policy</a>.</p>
+
+            <h2>9. Modifiche alla Privacy Policy</h2>
+            <p>Questa Privacy Policy può essere aggiornata periodicamente. Ti invitiamo a consultare questa pagina regolarmente per verificare eventuali modifiche. La data dell'ultimo aggiornamento è indicata in alto.</p>
+        </div>
+    </div>
+
+    <!-- Cookie Policy Page -->
+    <div class="legal-page" id="cookiePage">
+        <div class="legal-content">
+            <a href="#" onclick="showPage('home'); return false;" class="legal-back">← Torna alla home</a>
+            
+            <h1>Cookie Policy</h1>
+            <p class="last-update">Ultimo aggiornamento: Gennaio 2026</p>
+
+            <h2>1. Cosa sono i cookie</h2>
+            <p>I cookie sono piccoli file di testo che i siti web salvano sul tuo dispositivo (computer, tablet, smartphone) quando li visiti. Servono a far funzionare il sito, a migliorarne l'esperienza d'uso e a fornire informazioni al proprietario del sito.</p>
+
+            <h2>2. Titolare del trattamento</h2>
+            <p>
+                <strong>Gabriele Zerbonia</strong><br>
+                P.IVA: 03318380809<br>
+                Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2b5b3b0a0bbb7beb7fca8b7a0b0bdbcbbb392b5bfb3bbbefcb1bdbf">[email&#160;protected]</a>
+            </p>
+
+            <h2>3. Tipologie di cookie utilizzati</h2>
+
+            <h3>Cookie tecnici (necessari)</h3>
+            <p>Questi cookie sono essenziali per il corretto funzionamento del sito e non possono essere disattivati. Non raccolgono informazioni personali identificabili.</p>
+            <ul>
+                <li><strong>cookie_consent:</strong> salva le tue preferenze sui cookie (durata: 1 anno)</li>
+            </ul>
+
+            <h3>Cookie analitici (previo consenso)</h3>
+            <p>Questi cookie ci permettono di capire come i visitatori interagiscono con il sito, raccogliendo informazioni in forma anonima e aggregata.</p>
+            <ul>
+                <li><strong>Google Analytics (_ga, _ga_*, _gid):</strong> raccoglie dati statistici anonimi sull'utilizzo del sito (durata: fino a 26 mesi)</li>
+            </ul>
+            <p>Fornitore: Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA<br>
+            Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+            <h3>Cookie di marketing (previo consenso)</h3>
+            <p>Questi cookie vengono utilizzati per mostrarti pubblicità pertinenti su altre piattaforme in base ai tuoi interessi.</p>
+            <ul>
+                <li><strong>Meta Pixel (_fbp, fr):</strong> permette di mostrare annunci personalizzati su Facebook e Instagram (durata: fino a 180 giorni)</li>
+            </ul>
+            <p>Fornitore: Meta Platforms Inc., 1601 Willow Road, Menlo Park, CA 94025, USA<br>
+            Privacy Policy: <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">https://www.facebook.com/privacy/policy/</a></p>
+
+            <h2>4. Come gestire i cookie</h2>
+            
+            <h3>Tramite il nostro sito</h3>
+            <p>Puoi gestire le tue preferenze sui cookie in qualsiasi momento cliccando su <a href="#" onclick="openCookieSettings(); return false;">Impostazioni Cookie</a>.</p>
+
+            <h3>Tramite il browser</h3>
+            <p>Puoi anche gestire i cookie attraverso le impostazioni del tuo browser:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/it/kb/Gestione%20dei%20cookie" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+                <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+            </ul>
+            <p><strong>Nota:</strong> disabilitando i cookie tecnici, alcune funzionalità del sito potrebbero non funzionare correttamente.</p>
+
+            <h2>5. Trasferimento dati extra-UE</h2>
+            <p>Alcuni cookie di terze parti (Google Analytics, Meta Pixel) potrebbero comportare il trasferimento di dati verso gli Stati Uniti. Tali trasferimenti avvengono sulla base di garanzie appropriate, come le Standard Contractual Clauses approvate dalla Commissione Europea.</p>
+
+            <h2>6. Modifiche alla Cookie Policy</h2>
+            <p>Questa Cookie Policy può essere aggiornata periodicamente. Ti invitiamo a consultare questa pagina regolarmente. La data dell'ultimo aggiornamento è indicata in alto.</p>
+
+            <h2>7. Contatti</h2>
+            <p>Per qualsiasi domanda relativa ai cookie, puoi contattarmi all'indirizzo: <a href="/cdn-cgi/l/email-protection#a8cfc9cadac1cdc4cd86d2cddacac7c6c1c9e8cfc5c9c1c486cbc7c5"><span class="__cf_email__" data-cfemail="fb9c9a9989929e979ed5819e89999495929abb9c969a9297d5989496">[email&#160;protected]</span></a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>GZ MARKETING</h3>
+                <p>Marketing per la sanità privata e la PMA</p>
+                <p style="font-size: 0.9rem;">Gabriele Zerbonia - P.IVA: 03318380809</p>
+                <p style="font-size: 0.85rem; color: #64748b;">Contrada Taccone 6, 89862 Drapia (VV)</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <p>&copy; <span id="year"></span> GZ Marketing</p>
+                    <a href="#" onclick="showPage('privacy'); return false;">Privacy Policy</a>
+                    <a href="#" onclick="showPage('cookie'); return false;">Cookie Policy</a>
+                    <a href="#" onclick="openCookieSettings(); return false;">Gestisci Cookie</a>
+                </div>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">↑ Torna su</button>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ==================== COOKIE MANAGEMENT ====================
+        
+        function getCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            return consent ? JSON.parse(consent) : null;
+        }
+
+        function setCookieConsent(consent) {
+            localStorage.setItem('cookieConsent', JSON.stringify(consent));
+        }
+
+        function showCookieBanner() {
+            document.getElementById('cookieBanner').classList.add('show');
+        }
+
+        function hideCookieBanner() {
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        function acceptAllCookies() {
+            const consent = {
+                necessary: true,
+                analytics: true,
+                marketing: true,
+                timestamp: new Date().toISOString()
+            };
+            setCookieConsent(consent);
+            hideCookieBanner();
+            loadAnalytics();
+            loadMarketingPixels();
+        }
+
+        function rejectOptionalCookies() {
+            const consent = {
+                necessary: true,
+                analytics: false,
+                marketing: false,
+                timestamp: new Date().toISOString()
+            };
+            setCookieConsent(consent);
+            hideCookieBanner();
+        }
+
+        function openCookieSettings() {
+            const consent = getCookieConsent();
+            if (consent) {
+                document.getElementById('analyticsCookies').checked = consent.analytics;
+                document.getElementById('marketingCookies').checked = consent.marketing;
+            }
+            document.getElementById('cookieModal').classList.add('show');
+            hideCookieBanner();
+        }
+
+        function closeCookieSettings() {
+            document.getElementById('cookieModal').classList.remove('show');
+            if (!getCookieConsent()) {
+                showCookieBanner();
+            }
+        }
+
+        function saveCookieSettings() {
+            const consent = {
+                necessary: true,
+                analytics: document.getElementById('analyticsCookies').checked,
+                marketing: document.getElementById('marketingCookies').checked,
+                timestamp: new Date().toISOString()
+            };
+            setCookieConsent(consent);
+            closeCookieSettings();
+            
+            if (consent.analytics) {
+                loadAnalytics();
+            }
+            if (consent.marketing) {
+                loadMarketingPixels();
+            }
+        }
+
+        // Placeholder functions for loading tracking scripts
+        // Replace with actual implementation when you have the tracking IDs
+        function loadAnalytics() {
+            // Google Analytics - uncomment and add your tracking ID when ready
+            /*
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-XXXXXXXXX-X', 'auto');
+            ga('send', 'pageview');
+            */
+            console.log('Analytics would load here');
+        }
+
+        function loadMarketingPixels() {
+            // Meta Pixel - uncomment and add your pixel ID when ready
+            /*
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'XXXXXXXXXXXXXXXXX');
+            fbq('track', 'PageView');
+            */
+            console.log('Marketing pixels would load here');
+        }
+
+        // Initialize cookie consent on page load
+        window.addEventListener('load', () => {
+            const consent = getCookieConsent();
+            if (!consent) {
+                showCookieBanner();
+            } else {
+                if (consent.analytics) {
+                    loadAnalytics();
+                }
+                if (consent.marketing) {
+                    loadMarketingPixels();
+                }
+            }
+        });
+
+        // ==================== PAGE NAVIGATION ====================
+        
+        function showPage(page) {
+            const mainContent = document.getElementById('mainContent');
+            const privacyPage = document.getElementById('privacyPage');
+            const cookiePage = document.getElementById('cookiePage');
+            
+            mainContent.classList.remove('hidden');
+            privacyPage.classList.remove('active');
+            cookiePage.classList.remove('active');
+            
+            if (page === 'privacy') {
+                mainContent.classList.add('hidden');
+                privacyPage.classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            } else if (page === 'cookie') {
+                mainContent.classList.add('hidden');
+                cookiePage.classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            } else {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+
+        // ==================== MOBILE MENU ====================
+        
+        function toggleMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ==================== CASE STUDY ====================
+        
+        function expandCase(caseId) {
+            var preview = document.getElementById(caseId + '-preview');
+            var full = document.getElementById(caseId + '-full');
+            if (preview && full) {
+                preview.style.display = 'none';
+                full.classList.add('active');
+            }
+        }
+
+        function collapseCase(caseId) {
+            var preview = document.getElementById(caseId + '-preview');
+            var full = document.getElementById(caseId + '-full');
+            if (preview && full) {
+                full.classList.remove('active');
+                preview.style.display = 'block';
+            }
+        }
+
+        // ==================== FORM HANDLING ====================
+        
+        function handleEmailSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+
+            const nome = form.elements["nome"].value.trim();
+            const email = form.elements["email"].value.trim();
+            const business = form.elements["business"].value.trim();
+            const messaggio = form.elements["messaggio"].value.trim();
+
+            const subject = encodeURIComponent("Richiesta consulenza gratuita 30 minuti - progetto sanitario");
+            const body = encodeURIComponent(
+                "Nome: " + nome + "\n" +
+                "Email: " + email + "\n" +
+                "Struttura/attività: " + business + "\n\n" +
+                "Messaggio:\n" + messaggio
+            );
+
+            window.location.href =
+                "mailto:gabriele.zerbonia@gmail.com?subject=" + subject + "&body=" + body;
+
+            form.reset();
+        }
+
+        // ==================== SCROLL EFFECTS ====================
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // ==================== YEAR ====================
+        
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
