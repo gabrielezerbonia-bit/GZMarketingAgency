@@ -620,7 +620,7 @@ header {
 .contact-form input, .contact-form textarea {
   background: rgba(255,255,255,0.04); border: 1px solid var(--border);
   border-radius: 10px; padding: 0.875rem 1rem; color: var(--text);
-  font-size: 0.95rem; font-family: inherit; transition: all 0.2s; width: 100%;
+  font-size: max(1rem, 0.95rem); font-family: inherit; transition: all 0.2s; width: 100%;
 }
 .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); }
 .contact-form input:focus, .contact-form textarea:focus {
@@ -788,5 +788,15 @@ footer { background: #040410; border-top: 1px solid var(--border); padding: 4rem
   .container { padding: 0 1.25rem; }
   .nav-container { padding: 0 1.25rem; }
   .hero h1 { font-size: 1.75rem; }
-  .partner-sites-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-stats { gap: 0.75rem; }
+  .stat-n { font-size: 1.6rem; }
+  .section-dark, .section-alt { padding: 3.5rem 1.25rem; }
+  .partner-sites-grid { grid-template-columns: repeat(2, 1fr); }
+  .pnav-item { min-width: 62px; padding: 0.6rem 0.35rem; }
+  .pnav-title { font-size: 0.6rem; letter-spacing: 0; }
+  .pnav-num { font-size: 1rem; }
+  .contact-form input, .contact-form textarea { font-size: 1rem; }
+  .section-num-bg { font-size: 5rem; }
+  .process-panel.active { padding: 1.25rem; }
+  .about-grid { gap: 2rem; }
 }
