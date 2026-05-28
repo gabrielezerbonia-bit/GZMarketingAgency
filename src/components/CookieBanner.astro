@@ -1,0 +1,43 @@
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>Questo sito utilizza i cookie</strong>
+      <p>Utilizziamo cookie tecnici e, previo consenso, analitici e di marketing. Leggi la <button class="link-btn" onclick="showPage('privacy')">Privacy Policy</button> e la <button class="link-btn" onclick="showPage('cookie')">Cookie Policy</button>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-accept" onclick="acceptAllCookies()">Accetta tutti</button>
+      <button class="cookie-btn cookie-reject" onclick="rejectOptionalCookies()">Rifiuta opzionali</button>
+      <button class="cookie-btn cookie-settings-btn" onclick="openCookieSettings()">Personalizza</button>
+    </div>
+  </div>
+</div>
+
+<div class="cookie-modal" id="cookieModal">
+  <div class="cookie-modal-box">
+    <div class="cookie-modal-head">
+      <h3>Impostazioni Cookie</h3>
+      <button onclick="closeCookieSettings()" aria-label="Chiudi">✕</button>
+    </div>
+    <div class="cookie-cat">
+      <div class="cookie-cat-head"><h4>Cookie Tecnici (necessari)</h4>
+        <label class="toggle"><input type="checkbox" checked disabled /><span class="slider"></span></label>
+      </div>
+      <p>Essenziali per il funzionamento del sito. Non possono essere disattivati.</p>
+    </div>
+    <div class="cookie-cat">
+      <div class="cookie-cat-head"><h4>Cookie Analitici</h4>
+        <label class="toggle"><input type="checkbox" id="analyticsCookies" /><span class="slider"></span></label>
+      </div>
+      <p>Ci aiutano a capire come i visitatori interagiscono con il sito (Google Analytics).</p>
+    </div>
+    <div class="cookie-cat">
+      <div class="cookie-cat-head"><h4>Cookie di Marketing</h4>
+        <label class="toggle"><input type="checkbox" id="marketingCookies" /><span class="slider"></span></label>
+      </div>
+      <p>Utilizzati per pubblicità pertinenti su altre piattaforme (Meta Pixel).</p>
+    </div>
+    <div class="cookie-modal-foot">
+      <button class="cookie-btn cookie-accept" onclick="saveCookieSettings()">Salva preferenze</button>
+    </div>
+  </div>
+</div>

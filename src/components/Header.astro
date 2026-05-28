@@ -1,0 +1,36 @@
+<div class="scroll-progress-bar" id="scrollProgress"></div>
+
+<nav class="sec-dots" id="secDots" aria-label="Navigazione sezioni">
+  <button class="sec-dot active" data-target="home" title="Home"></button>
+  <button class="sec-dot" data-target="servizi" title="Servizi"></button>
+  <button class="sec-dot" data-target="chi-siamo" title="Chi siamo"></button>
+  <button class="sec-dot" data-target="processo" title="Come lavoriamo"></button>
+  <button class="sec-dot" data-target="portfolio" title="Portfolio"></button>
+  <button class="sec-dot" data-target="video" title="Video"></button>
+  <button class="sec-dot" data-target="partner" title="Partner"></button>
+  <button class="sec-dot" data-target="contatti" title="Contatti"></button>
+</nav>
+
+<header id="header">
+  <nav class="nav-container">
+    <a href="#" class="logo" onclick="showPage('home'); return false;" aria-label="GZ Marketing Agency">
+      <div class="logo-icon">GZ</div>
+      <div class="logo-text">
+        <span class="logo-main">GZ Marketing</span>
+        <span class="logo-sub">Agency</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#chi-siamo">Chi siamo</a></li>
+      <li><a href="#processo">Come lavoriamo</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#partner">Partner</a></li>
+      <li><a href="#contatti" class="nav-cta">Consulenza gratuita</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>

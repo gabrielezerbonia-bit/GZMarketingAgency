@@ -44,10 +44,10 @@ test.describe('GZ Marketing Agency — Desktop', () => {
     await expect(page.locator('.profile-photo')).toBeVisible();
   });
 
-  test('portfolio has 6 cases', async ({ page }) => {
+  test('portfolio has 7 cases', async ({ page }) => {
     await page.locator('#portfolio').scrollIntoViewIfNeeded();
     const cards = page.locator('.portfolio-card');
-    await expect(cards).toHaveCount(6);
+    await expect(cards).toHaveCount(7);
   });
 
   test('portfolio expand/collapse works', async ({ page }) => {
