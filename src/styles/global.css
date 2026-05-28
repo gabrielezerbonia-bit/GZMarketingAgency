@@ -583,16 +583,19 @@ header {
 .psc-card {
   border-radius: 14px; border: 1px solid var(--border);
   background: rgba(255,255,255,0.02); padding: 1.25rem 1rem;
-  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-  text-align: center; transition: all 0.3s; cursor: default;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  text-align: center; transition: all 0.3s; cursor: pointer;
+  text-decoration: none; color: inherit;
 }
-.psc-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); transform: translateY(-3px); }
+.psc-card:hover { background: rgba(255,255,255,0.05); border-color: var(--v); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,58,237,0.15); }
 .psc-logo {
   width: 56px; height: 56px; border-radius: 10px; overflow: hidden;
   background: white; display: flex; align-items: center; justify-content: center;
 }
 .psc-logo img { width: 100%; height: 100%; object-fit: contain; }
-.psc-name { font-size: 0.82rem; font-weight: 600; color: var(--muted); }
+.psc-logo.psc-initials { background: var(--grad); color: white; font-size: 1rem; font-weight: 800; letter-spacing: 0.5px; }
+.psc-name { font-size: 0.82rem; font-weight: 700; color: var(--light); }
+.psc-domain { font-size: 0.7rem; color: var(--muted); word-break: break-all; }
 
 /* ======= CONTACT ======= */
 .contact-layout {
